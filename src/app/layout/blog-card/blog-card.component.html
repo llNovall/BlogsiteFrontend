@@ -1,0 +1,53 @@
+<div class="card card-size card-border m-auto overflow-hidden">
+    <img *ngIf="showImage" src="{{blog.imageUrl}}" alt="...">
+    <div *ngIf="navigationTitle" class="text-center">
+        <a href="" class="nav-link primary-text small-caps">{{navigationTitle}}</a>
+    </div>
+
+    <div class="container primary-background">
+        <div class="d-flex align-items-center justify-content-center card-tags-container">
+            <ng-container *ngFor="let tag of blog.tags | slice:0:4">
+                <a routerLink="search/{{tag.id}}"
+                    class="card-tag primary-background secondary-text small-caps text-center fw-light mx-2">{{tag.tagName}}</a>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row card-stats-background card-stats-size align-items-center justify-content-center">
+
+            <span class="d-flex justify-content-center">
+
+                <ng-container *ngIf="blog.isFeatured">
+                    <span class="card-stats-icon-background primary-background"><i
+                            class="bi bi-fire card-stats-icon secondary-text"></i></span>
+                    <span class="card-stats-text primary-text ms-1">Popular</span>
+                </ng-container>
+
+
+                <span class="card-stats-icon-background primary-background ms-2"><i
+                        class="bi bi-eye-fill card-stats-icon secondary-text"></i></span>
+                <span class="card-stats-text primary-text ms-1">{{blog.views}}</span>
+
+                <span class="card-stats-icon-background primary-background ms-2"><i
+                        class="bi bi-calendar4-week card-stats-icon secondary-text"></i></span>
+                <span class="card-stats-text primary-text ms-1">{{blog.createdAt | date:'d. MMM yyyy'}}</span>
+            </span>
+
+        </div>
+
+        <div class="card-content-size mt-1">
+            <h3 class="card-title card-title-text small-caps text-center mb-0">{{blog.title}}</h3>
+            <hr class="mt-2 mx-auto">
+
+            <p [froalaView]="blog.content" class="card-paragraph card-paragraph-text mb-0 text-center mt-1"></p>
+        </div>
+
+    </div>
+    <div class="card-footer primary-background text-center p-0">
+        <a routerLink="page/{{blog.id}}" href="">
+            <span class="d-block"><i class="bi bi-book-fill secondary-text"></i></span>
+        </a>
+    </div>
+</div>

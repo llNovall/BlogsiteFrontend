@@ -1,0 +1,34 @@
+<section class="mt-5 primary-background-light">
+    <div class="container pb-5">
+        <div class="d-flex justify-content-center">
+            <h2 class="container-title primary-text py-1 px-5 fs-4 fw-bold small-caps">Featured</h2>
+        </div>
+
+        <div *ngFor="let blog of blogs; trackBy:getBlogId" class="row justify-content-center mt-3">
+
+            
+
+            <div *ngIf="blog.isFeatured" class="col-md-auto col-lg-auto col-xl-auto mt-2">
+                <app-blog-card [blog]="blog" [showImage]="true"></app-blog-card>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container pb-5">
+        <div class="d-flex justify-content-center">
+            <h2 class="container-title primary-background secondary-text py-1 px-5 fs-4 fw-bold small-caps">All Posts
+            </h2>
+        </div>
+
+        <div *ngFor="let blog of blogs; trackBy:getBlogId" class="row justify-content-center mt-3">
+            <div class="col-md-auto col-lg-auto col-xl-auto mt-2">
+                <app-blog-card [blog]="blog" [showImage]="true"></app-blog-card>
+            </div>
+
+        </div>
+
+    </div>
+</section>

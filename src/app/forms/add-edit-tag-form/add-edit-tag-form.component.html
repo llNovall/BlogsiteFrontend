@@ -1,0 +1,29 @@
+<div class="form-container shadow-effect secondary-background mt-5">
+    <div class="d-flex justify-content-center">
+        <h2 class="container-title secondary-text primary-background py-1 px-5 fs-4 fw-bold small-caps">{{mode}} a Tag
+        </h2>
+    </div>
+
+    <div class="text-center mt-3">
+        <p class="primary-text comment-subtitle">You can use the form below to {{mode | lowercase}} a tag.</p>
+    </div>
+
+    <form class="container" #tagForm='ngForm'>
+
+        <div class="mb-3">
+            <label for="tagName" class="form-label primary-text small-caps fw-bold">Tag*</label>
+            <input id="tagName" name="tagName" type="text" class="form-control primary-background-light primary-text"
+                placeholder="Type tag name." [(ngModel)] = 'tag.tagName' #tagName = 'ngModel' required [ngClass]="{'is-invalid' : tagName.touched && tagName.invalid}">
+        </div>
+
+        <div class="primary-text alert fs-6" *ngIf = "tagName.touched && tagName.invalid">
+            Tagname is required
+        </div>
+        <div class="mb-3 text-center d-flex justify-content-between">
+            <button class="form-button button-light primary-text secondary-background small-caps" type="button"
+            (click)="onBack()">Back</button>
+            <button class="form-button button-light primary-text secondary-background small-caps" type="submit" [disabled]="tagName.invalid"
+                (click)="onSubmit()">{{mode}}</button>
+        </div>
+    </form>
+</div>

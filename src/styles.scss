@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+$primary-color : #FF9A9A;
+$secondary-color : #FFFFFF;
+$primary-color-light : #FFE3E3;
+$card-title-color : #515151;
+$card-paragraph-color: #868686;
+
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$font-family-serif:      'Roboto', sans-serif;
+$font-family-monospace:  'Roboto', sans-serif;
+$font-family-base:       $font-family-sans-serif !default;
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/variables";
+
+.primary-background{
+    background-color: $primary-color !important;
+}
+
+.primary-background-light{
+    background-color: $primary-color-light !important;
+}
+
+.secondary-background{
+    background-color: $secondary-color !important;
+}
+
+.primary-text{
+    color: $primary-color !important;
+}
+
+.secondary-text{
+    color: $secondary-color !important;
+}
+
+.small-caps{
+    font-variant: small-caps !important;
+}
+
+.container-title{
+    font-size: 1.2em !important;
+    background-color: white;
+    box-shadow: 2px 2px 10px 1px #9E9E9E;
+    margin-top: -0.85em;
+}
+
+.circle{
+    display: flex;
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.form-container{
+    border: 1px solid $primary-color;
+    border-radius: 0.1em;
+    max-width: 100% !important;
+    min-width: 700px !important;
+}
+
+.form-button{
+    width: 35%;
+}
+
+.button-light{
+    border: 1px solid $primary-color;
+    transition: 0.25s linear;
+    &:hover{
+        background-color: $primary-color !important;
+        color: $secondary-color !important;
+        transition: 0.25s linear;
+    }
+}
+
+.shadow-effect{
+    box-shadow: 3px 4px 10px 0px #9E9E9E;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=checkbox], textarea{
+
+    border: 0.5px solid $primary-color !important;
+    border-radius: 0.1em !important;
+    transition: 0.25s linear;
+    &:focus{
+        border: 1px solid $primary-color !important;
+        box-shadow: 1px 1px 10px 0px $primary-color !important;
+        transition: 0.25s linear;
+    }
+
+    &::placeholder{
+        color: $primary-color!important;
+        font-size: 0.8em;
+    }
+
+    &:checked{
+        background-color: $primary-color!important;
+    }
+}
+
+.title-border{
+    border-bottom: 1px solid #FF9A9A;
+}
+
+.card-border{
+    border: 2px solid #FF7575;
+    border-radius: 0px;
+}
+
+.card-title-text{
+    color: $card-title-color;
+}
+
+.card-paragraph-text{
+    color: $card-paragraph-color;
+}
+
+.btn-danger-custom{
+    background-color: red!important;
+    border: 1px solid $primary-color;
+    transition: 0.25s linear;
+    &:hover{
+        background-color: $primary-color !important;
+        color: $secondary-color !important;
+        transition: 0.25s linear;
+    }
+}

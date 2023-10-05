@@ -1,0 +1,62 @@
+<div class="form-container shadow-effect secondary-background mt-5">
+    <div class="d-flex justify-content-center">
+        <h2 class="container-title secondary-text primary-background py-1 px-5 fs-4 fw-bold small-caps">{{mode}} a
+            Project
+        </h2>
+    </div>
+
+    <div class="text-center mt-3">
+        <p class="primary-text comment-subtitle">You can use the form below to {{mode | lowercase}} a project.</p>
+    </div>
+
+    <form class="container" #projectForm='ngForm'>
+
+        <div class="mb-3">
+            <label for="projectName" class="form-label primary-text small-caps fw-bold">Project Name*</label>
+            <input id="projectName" name="projectName" type="text"
+                class="form-control primary-background-light primary-text" placeholder="Type project name."
+                [(ngModel)]='project.projectName' #projectName='ngModel' required [minLength]="1" [maxlength]="500"
+                [ngClass]="{'is-invalid' : projectName.touched && projectName.invalid}">
+        </div>
+
+        <div class="primary-text alert fs-6" *ngIf="projectName.touched && projectName.invalid">
+            Project Name is invalid.
+        </div>
+
+        <div class="mb-3">
+            <label for="projectDescription" class="form-label primary-text small-caps fw-bold">Project
+                Description*</label>
+
+            <textarea id="projectDescription" name="projectDescription" type="text"
+                class="form-control primary-background-light primary-text" placeholder="Type project description."
+                [(ngModel)]='project.projectDescription' #projectDescription='ngModel' required [minLength]="1" [maxlength]="8000"
+                [ngClass]="{'is-invalid' : projectDescription.touched && projectDescription.invalid}" [froalaEditor]>
+            </textarea>
+
+        </div>
+
+        <div class="primary-text alert fs-6" *ngIf="projectDescription && projectDescription.invalid">
+            Project Description is invalid.
+        </div>
+
+        <div class="mb-3">
+            <label for="projectLink" class="form-label primary-text small-caps fw-bold">Project Link*</label>
+            <input id="projectLink" name="projectLink" type="text"
+                class="form-control primary-background-light primary-text" placeholder="Type project link."
+                [(ngModel)]='project.projectLink' #projectLink='ngModel' required pattern="https{0,1}:\/.*"
+                [ngClass]="{'is-invalid' : projectLink.touched && projectLink.invalid}">
+        </div>
+
+        <div class="primary-text alert fs-6" *ngIf="projectLink.touched && projectLink.invalid">
+            Project Link is invalid.
+        </div>
+
+        <div class="mb-3 text-center d-flex justify-content-between">
+            <button class="form-button button-light primary-text secondary-background small-caps" type="button"
+                (click)="onBack()">Back</button>
+            <button class="form-button button-light primary-text secondary-background small-caps" type="submit"
+                [disabled]="projectName.invalid && projectDescription.invalid && projectLink.invalid"
+                (click)="onSubmit()">{{mode}}</button>
+        </div>
+    </form>
+</div>

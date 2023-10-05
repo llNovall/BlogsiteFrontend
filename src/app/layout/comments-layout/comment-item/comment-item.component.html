@@ -1,0 +1,35 @@
+<div class="form-container secondary-background px-3 py-2">
+    <div class="row">
+        <div class="col">
+            <h3 class="primary-text small-caps mb-0 comment-title">A typical name</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="primary-text small-caps comment-time mb-0">5 days ago</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="comment-body mb-0">
+                Volutpat ac tincidunt vitae semper. Aliquet lectus proin nibh nisl condimentum. Lacus vel facilisis
+                volutpat est velit egestas. Sit amet purus gravida quis blandit. Pellentesque sit amet porttitor eget
+                dolor morbi non. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Adipiscing
+                enim eu turpis egestas pretium aenean pharetra magna. Ullamcorper sit amet risus nullam eget felis.
+                Rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Amet aliquam id diam maecenas ultricies mi
+                eget.
+            </p>
+        </div>
+    </div>
+    <div class="my-2 text-left">
+        <button class="comment-button button-light primary-text secondary-background small-caps" (click)="onReply()">Reply</button>
+    </div>
+</div>
+
+<div *ngIf="reply" class=" mt-2">
+
+    <div class="mt-4 d-flex justify-content-center">
+        <app-comment-form [commentFormTitle] = "'Reply to Comment'" ></app-comment-form>
+    </div>
+    
+</div>

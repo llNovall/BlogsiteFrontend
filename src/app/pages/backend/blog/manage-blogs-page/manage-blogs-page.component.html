@@ -1,0 +1,33 @@
+<section class="mt-5 primary-background-light">
+    <div class="container pb-5">
+        <div class="d-flex justify-content-center">
+            <h2 class="container-title primary-text py-1 px-5 fs-4 fw-bold small-caps">Blogs Manager</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col-3 text-end">
+                <a routerLink="add" class="btn me-2 button-light px-2 primary-text secondary-background"><i class="bi bi-plus-square"></i> Add</a>
+            </div>
+        </div>
+
+        <div class="row text-center title-border primary-background mt-3">
+            <div class="col-1 secondary-text small-caps">No.</div>
+            <div class="col-6 secondary-text small-caps">Blog Title</div>
+            <div class="col-2 secondary-text small-caps">Created At</div>
+            <div class="col-3 secondary-text small-caps">Actions</div>
+        </div>
+        
+        <ng-container *ngFor="let blog of blogs; let i = index">
+            <div class="row text-center title-border py-1 secondary-background">
+                <div class="col-1">{{i}}</div>
+                <div class="col-6">{{blog.title}}</div>
+                <div class="col-2">{{blog.createdAt | date: "MM-dd-yyyy HH:mm:ss"}}</div>
+                <div class="col-3 mb-1">
+                    <a routerLink="edit/{{blog.id}}" class="btn me-2 button-light primary-text secondary-background">Edit</a>
+                    <button class="btn btn-danger-custom secondary-text" (click)="onDelete(i, blog)">Delete</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</section>

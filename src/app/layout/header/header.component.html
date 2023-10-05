@@ -1,0 +1,51 @@
+<nav class="navbar sticky-top secondary-background pb-0">
+    <div class="container-fluid text-center d-block">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <div class="nav-item">
+                    <a routerLink="" class="navbar-brand small-caps primary-text fw-bolder fs-2">Blog Site</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                <div class="row">
+                    <div class="col-md-3 ps2 pe2">
+                        <a href="#" class="nav-link small-caps primary-text fw-bold">GITHUB</a>
+                    </div>
+                    <div class="col-md-3 ps2 pe2">
+                        <a routerLink="projects" class="nav-link small-caps primary-text fw-bold">PROJECTS</a>
+                    </div>
+                    <div class="col-md-3 ps2 pe2">
+                        <a routerLink="contact" class="nav-link small-caps primary-text fw-bold">CONTACT</a>
+                    </div>
+                    <div class="col-md-3 ps2 pe2 text-center">
+
+
+                        <a routerLink="search" class="text-center d-flex">
+                            <span class="d-flex justify-content-center">
+                                <span class="circle header-icon-size primary-background"><i
+                                        class="bi bi-search header-icon secondary-text"></i></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center primary-background">
+    <div class="row justify-content-center">
+
+            <div *ngFor="let tag of tags | slice: 0:6" class="col-md-2 p-1">
+                <div class="nav-item">
+                    <a routerLink="search/{{tag.id}}" class="nav-link secondary-text small-caps fw-medium">{{tag.tagName}}</a>
+                </div>
+            </div>
+
+    </div>
+
+</div>

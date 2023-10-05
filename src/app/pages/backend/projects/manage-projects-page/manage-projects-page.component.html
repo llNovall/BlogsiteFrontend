@@ -1,0 +1,32 @@
+<section class="mt-5 primary-background-light">
+    <div class="container pb-5">
+        <div class="d-flex justify-content-center">
+            <h2 class="container-title primary-text py-1 px-5 fs-4 fw-bold small-caps">Projects Manager</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col-3 text-end">
+                <a routerLink="add" class="btn me-2 button-light px-2 primary-text secondary-background"><i class="bi bi-plus-square"></i> Add</a>
+            </div>
+        </div>
+
+        <div class="row text-center title-border primary-background mt-3">
+            <div class="col-1 secondary-text small-caps">No.</div>
+            <div class="col-8 secondary-text small-caps">Project Name</div>
+            <div class="col-3 secondary-text small-caps">Actions</div>
+        </div>
+
+        <ng-container *ngFor="let project of projects; let i = index">
+            <div class="row text-center title-border py-1 secondary-background">
+                <div class="col-1">{{i}}</div>
+                <div class="col-8">{{project.projectName}}</div>
+                <div class="col-3 mb-1">
+                    <a routerLink="edit/{{project.id}}" class="btn me-2 button-light primary-text secondary-background">Edit</a>
+                    <button class="btn btn-danger-custom secondary-text" (click)="onDelete(i, project)">Delete</button>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+</section>

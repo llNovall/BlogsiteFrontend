@@ -1,0 +1,32 @@
+<div class="form-container shadow-effect secondary-background">
+    <div class="d-flex justify-content-center">
+        <h2 class="container-title secondary-text primary-background py-1 px-5 fs-4 fw-bold small-caps">Login</h2>
+    </div>
+
+    <div class="text-center mt-3">
+        <p class="primary-text comment-subtitle">You can use the form below to log in.</p>
+    </div>
+
+    <form class="container" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+        <div class="mb-3">
+            <p *ngIf='isLoginFailed' class="text-danger">Incorrect login credentials</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="Name" class="form-label primary-text small-caps fw-bold">Username*</label>
+            <input id="Name" type="text" class="form-control primary-background-light primary-text"
+                placeholder="Type your username" [(ngModel)]="loginCredentials.username" name="username">
+        </div>
+
+        <div class="mb-3">
+            <label for="Password" class="form-label primary-text small-caps fw-bold">Password*</label>
+            <input id="Password" type="password" class="form-control primary-background-light primary-text"
+                placeholder="Type your password" [(ngModel)]="loginCredentials.password" name="password">
+        </div>
+
+        <div class="mb-3 text-center">
+            <button class="form-button button-light primary-text secondary-background small-caps">Sign-In</button>
+        </div>
+    </form>
+</div>
