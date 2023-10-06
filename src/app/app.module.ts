@@ -45,6 +45,7 @@ import { EditProjectsPageComponent } from './pages/backend/projects/edit-project
 //#endregion
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { environment } from 'src/environment';
 
 
 export function tokenGetter() { 
@@ -101,7 +102,7 @@ export function tokenGetter() {
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
-  providers: [],
+  providers: [{provide: 'environment', useValue: environment}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

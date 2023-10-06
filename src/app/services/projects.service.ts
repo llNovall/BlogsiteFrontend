@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from '../models/project';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
 
-  readonly _baseUrl = 'https://localhost:7256/api/Project';
+  readonly _baseUrl = environment.API_URL + '/Project';
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
