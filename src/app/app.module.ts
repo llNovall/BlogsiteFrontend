@@ -93,7 +93,7 @@ export function tokenGetter() {
       {
         config: {
           tokenGetter : tokenGetter,
-          allowedDomains : ["localhost:7256"],
+          allowedDomains : [environment.JWT_ALLOWED_DOMAIN],
           disallowedRoutes : []
         }
       }
