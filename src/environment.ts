@@ -1,3 +1,3 @@
 export const environment = {
-    API_URL: 'https://localhost:7256/api'
+    API_URL: 'https://blogsite-novus.azurewebsites.net'
 };
