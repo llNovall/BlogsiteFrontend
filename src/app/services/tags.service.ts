@@ -10,7 +10,7 @@ import { environment } from 'src/environment';
 })
 export class TagsService {
   
-  readonly _baseUrl = environment.API_URL + '/Tag';
+  readonly _baseUrl = environment.API_URL + '/BlogTag';
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
