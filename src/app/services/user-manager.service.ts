@@ -3,14 +3,16 @@ import { LoginCredential } from '../models/dashboard/login-credential';
 import { LoginResponse } from '../models/dashboard/login-response';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { UserModel } from '../models/dashboard/user-model';
 import { Router } from '@angular/router';
+import { environment } from 'src/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserManagerService {
 
+  readonly _baseUrl = environment.API_URL + '/Accounts';
+  
   isUserLoggedIn: boolean = false;
   isUserLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.isUserLoggedIn);
 
@@ -19,7 +21,7 @@ export class UserManagerService {
   }
 
   loginUser(loginCredential : LoginCredential){
-    this.http.post<LoginResponse>("https://localhost:7256/api/Accounts/Login", loginCredential, {
+    this.http.post<LoginResponse>(this._baseUrl + "/Login", loginCredential, {
       headers: new HttpHeaders({"Content-Type": "application/json"})
     }).subscribe({
       next: (response : LoginResponse) => {
