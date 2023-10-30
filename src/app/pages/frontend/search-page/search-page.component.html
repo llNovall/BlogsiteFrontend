@@ -9,7 +9,8 @@
                 <h3 class="primary-background secondary-text text-center fs-6 fw-bold small-caps mt-2">Category</h3>
 
                 <div *ngFor="let tagCheckbox of tagsCheckboxModels; trackBy:getTagId" class="form-check ms-4">
-                    <input name="{{tagCheckbox.tag.id}}" [checked]="tagCheckbox.isChecked" (change)="onTagCheckboxChanged(tagCheckbox, searchOption.checked)"
+                    <input name="{{tagCheckbox.tag.id}}" [checked]="tagCheckbox.isChecked"
+                        (change)="onTagCheckboxChanged(tagCheckbox, searchOption.checked)"
                         class="form-check-input primary-background" type="checkbox" value="" id="{{tagCheckbox.tag.id}}"
                         #searchOption>
                     <label for="{{tagCheckbox.tag.id}}" class="form-check-label primary-text" for="category1">
@@ -19,8 +20,10 @@
 
                 <h3 class="primary-background secondary-text text-center fs-6 fw-bold small-caps mt-2">Year</h3>
                 <div *ngFor="let yearCheckbox of yearsCheckboxModels; trackBy:getYear" class="form-check ms-4">
-                    <input name="{{yearCheckbox.year}}" [checked]="yearCheckbox.isChecked" (change)="onYearCheckboxChanged(yearCheckbox, searchOption.checked)" class="form-check-input primary-background" type="checkbox"
-                        value="" id="{{yearCheckbox.year}}" #searchOption>
+                    <input name="{{yearCheckbox.year}}" [checked]="yearCheckbox.isChecked"
+                        (change)="onYearCheckboxChanged(yearCheckbox, searchOption.checked)"
+                        class="form-check-input primary-background" type="checkbox" value="" id="{{yearCheckbox.year}}"
+                        #searchOption>
                     <label for="{{yearCheckbox.year}}" class="form-check-label primary-text" for="year1">
                         {{yearCheckbox.year}}
                     </label>
@@ -34,10 +37,13 @@
             </div>
 
 
-            <div *ngFor="let blog of searchResults; trackBy:getBlogId" class="row justify-content-start">
-                <div class="col-sm-auto col-md-auto col-lg-auto col-xl-auto mt-2 pe-0">
-                    <app-blog-card [blog]="blog" [showImage]=true></app-blog-card>
-                </div>
+            <div class="row justify-content-start">
+                <ng-container *ngFor="let blog of searchResults; trackBy:getBlogId">
+                    <div class="col-sm-auto col-md-auto col-lg-auto col-xl-auto mt-2 pe-0">
+                        <app-blog-card [blog]="blog" [showImage]=true></app-blog-card>
+                    </div>
+                </ng-container>
+
             </div>
 
         </div>
