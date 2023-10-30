@@ -38,7 +38,7 @@ export class SearchPageComponent implements OnInit {
     this.blogsService.getAllBlogs().subscribe((blogs) => {
       const yearsList: number[] = blogs.map((p) =>
         new Date(p.createdAt).getFullYear()
-      );
+      ).filter((value, index, self) => self.indexOf(value) === index);
       yearsList.forEach((y) =>
         this.yearsCheckboxModels.push({ year: y, isChecked: false })
       );
