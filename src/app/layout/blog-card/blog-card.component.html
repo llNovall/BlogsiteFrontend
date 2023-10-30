@@ -22,7 +22,7 @@
                 <ng-container *ngIf="blog.isFeatured">
                     <span class="card-stats-icon-background primary-background"><i
                             class="bi bi-fire card-stats-icon secondary-text"></i></span>
-                    <span class="card-stats-text primary-text ms-1">Popular</span>
+                    <span class="card-stats-text primary-text ms-1">Featured</span>
                 </ng-container>
 
 
@@ -37,9 +37,9 @@
 
         </div>
 
-        <div class="card-content-size mt-1">
+        <div class="card-content-size mt-2">
             <h3 class="card-title card-title-text small-caps text-center mb-0">{{blog.title}}</h3>
-            <hr class="mt-2 mx-auto">
+            <hr class="mt-0 mx-auto">
 
             <p [froalaView]="blog.content" class="card-paragraph card-paragraph-text mb-0 text-center mt-1"></p>
         </div>
