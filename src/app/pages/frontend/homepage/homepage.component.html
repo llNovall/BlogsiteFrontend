@@ -22,7 +22,7 @@
             </h2>
         </div>
 
-        <div class="row justify-content-center mt-3">   
+        <div class="row justify-content-between mt-3">   
             <ng-container *ngFor="let blog of blogs; trackBy:getBlogId" >
                 <div class="col-md-auto col-lg-auto col-xl-auto mt-2">
                     <app-blog-card  [blog]="blog" [showImage]="true"></app-blog-card>
