@@ -24,7 +24,6 @@ export class BlogCommentsService {
     if(parentCommentId)
       params = params.append('parentCommentId', parentCommentId);
 
-    console.log(params);
     return this.httpClient.get<BlogComment[]>(this._baseUrl, {params: params});
   }
 }

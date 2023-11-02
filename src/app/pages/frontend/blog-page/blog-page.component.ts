@@ -39,7 +39,9 @@ export class BlogPageComponent {
         this.blogsService.addViewToBlog(this.blog.id, 1);
       });
 
-      this.blogCommentsService.getComments(blogId).subscribe((data) => {this.blogComments = data; console.log(data);});
+      this.blogCommentsService.getComments(blogId).subscribe((data) => {
+        this.blogComments = data;
+      });
     }
   }
 }

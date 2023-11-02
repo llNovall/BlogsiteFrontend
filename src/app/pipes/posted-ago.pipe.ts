@@ -23,7 +23,7 @@ export class PostedAgoPipe implements PipeTransform {
     const elapsedTimeInSeconds: number = Math.floor(
       (+new Date() - +new Date(value)) / 1000
     );
-    console.log('elapsed time in seconds', elapsedTimeInSeconds);
+
     if (elapsedTimeInSeconds < 30) return 'Just now';
 
     for (let agoText of this.agoTexts) {
@@ -32,7 +32,6 @@ export class PostedAgoPipe implements PipeTransform {
           elapsedTimeInSeconds / agoText[0]
         );
 
-        console.log('converted time', convertedTime);
         if (convertedTime === 1) {
           returnText = `${convertedTime} ${agoText[1]} ago`;
         } else {
