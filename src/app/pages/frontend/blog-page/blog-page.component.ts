@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Blog } from 'src/app/models/blog';
+import { BlogComment } from 'src/app/models/blog-comment';
+import { BlogCommentsService } from 'src/app/services/blog-comments.service';
 import { BlogsService } from 'src/app/services/blogs.service';
 
 @Component({
@@ -21,9 +23,12 @@ export class BlogPageComponent {
     views: 0,
   };
 
+  blogComments: BlogComment[] = [];
+
   constructor(
     private route: ActivatedRoute,
-    private blogsService: BlogsService
+    private blogsService: BlogsService,
+    private blogCommentsService: BlogCommentsService
   ) {}
 
   ngOnInit(): void {
@@ -32,8 +37,9 @@ export class BlogPageComponent {
       this.blogsService.getBlog(blogId).subscribe((c) => {
         this.blog = c;
         this.blogsService.addViewToBlog(this.blog.id, 1);
-        console.log("adding views");
       });
+
+      this.blogCommentsService.getComments(blogId).subscribe((data) => {this.blogComments = data; console.log(data);});
     }
   }
 }

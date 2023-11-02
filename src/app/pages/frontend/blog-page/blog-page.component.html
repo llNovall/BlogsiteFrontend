@@ -23,13 +23,13 @@
 -->
 <section class="primary-background-light">
     <div class="pt-5 d-flex justify-content-center">
-        <app-comment-form></app-comment-form>
+        <app-comment-form [blogId]="blog.id"></app-comment-form>
     </div>
 </section>
 
 <section class="primary-background-light">
     <div class="container py-3">
-        <app-comment-section></app-comment-section>
+        <app-comment-section [blogComments]="blogComments"></app-comment-section>
     </div>
     
 </section>

@@ -7,19 +7,40 @@
         <p class="primary-text comment-subtitle">You can use the form below to comment.</p>
     </div>
     
-    <form class="container">
+    <form class="container" (ngSubmit)="onSubmit()" #form="ngForm">
         <div class="mb-3">
-            <label for="Name" class="form-label primary-text small-caps">Name*</label>
-            <input id="Name" type="text" class="form-control primary-background-light primary-text" placeholder="Type your name">
+            <label for="sender" class="form-label primary-text small-caps">Name*</label>
+            <input name="sender" type="text" class="form-control primary-background-light primary-text" 
+            placeholder="Type your name" 
+            [(ngModel)]='blogComment.sender' 
+            required 
+            minlength=3
+            maxlength=30
+            #sender = "ngModel">
+        </div>
+
+        <div *ngIf="sender.invalid && sender.touched">
+            <p class="primary-text alert alert-text fs-6">Name must be between 3 - 30 characters long.</p>
         </div>
 
         <div class="mb-3">
-            <label for="Comment" class="form-label primary-text small-caps">Comment*</label>
-            <textarea id="Comment" type="text" class="form-control primary-background-light primary-text" placeholder="Type your comment"></textarea>
+            <label for="comment" class="form-label primary-text small-caps">Comment*</label>
+            <textarea name="comment" type="text" class="form-control primary-background-light primary-text" 
+            placeholder="Type your comment" 
+            [(ngModel)]='blogComment.commentBody'
+            required
+            minlength=3
+            maxlength=500></textarea>
         </div>
         
+        <div *ngIf="sender.invalid && sender.touched">
+            <p class="primary-text alert alert-text fs-6">Comment must be between 3 - 500 characters long.</p>
+        </div>
+
         <div class="mb-3 text-center">
-            <button class="form-button button-light primary-text secondary-background small-caps">Send</button>
+            <button class="form-button small-caps" type="submit" 
+            [ngClass]="!form.valid ? 'disabled' : 'secondary-background button-light primary-text'"
+            [disabled]="isAddingComment || (!form.valid)">Send</button>
         </div>
     </form>
 </div>
