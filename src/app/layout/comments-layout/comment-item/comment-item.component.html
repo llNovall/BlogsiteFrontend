@@ -31,7 +31,7 @@
 </div>
 
 <div *ngIf="!showReplies && replies.length > 0" class="text-center mt-2">
-    <button class="comment-button button-light primary-text secondary-background small-caps">Show more replies ({{replies.length}})</button>
+    <button class="comment-button button-light primary-text secondary-background small-caps" (click)="showMoreReplies()">Show more replies ({{replies.length}})</button>
 </div>
 <ng-container *ngIf="showReplies">
     <div *ngFor="let reply of replies" class="d-flex justify-content-end mt-2">

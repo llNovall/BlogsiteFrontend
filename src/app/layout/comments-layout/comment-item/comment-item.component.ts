@@ -34,4 +34,8 @@ export class CommentItemComponent implements OnInit {
   onReply() {
     this.reply = !this.reply;
   }
+
+  showMoreReplies(){
+    this.showReplies = true;
+  }
 }
