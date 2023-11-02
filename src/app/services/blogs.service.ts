@@ -33,7 +33,6 @@ export class BlogsService {
       .post<Blog[]>(this._baseUrl + '/FindBlogsByTagsAndYears', body)
       .pipe(
         catchError((er) => {
-          console.log(er);
           return Promise.reject<Blog[]>();
         })
       );

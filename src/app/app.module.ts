@@ -46,6 +46,7 @@ import { EditProjectsPageComponent } from './pages/backend/projects/edit-project
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { environment } from 'src/environment';
+import { PostedAgoPipe } from './pipes/posted-ago.pipe';
 
 
 export function tokenGetter() { 
@@ -84,6 +85,7 @@ export function tokenGetter() {
     EditProjectsPageComponent,
     AddEditProjectFormComponent,
     AddEditBlogFormComponent,
+    PostedAgoPipe,
   ],
   imports: [
     BrowserModule,
