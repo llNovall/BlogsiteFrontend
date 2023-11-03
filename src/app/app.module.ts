@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //#region layout
 import { HeaderComponent } from './layout/header/header.component';
@@ -47,7 +48,8 @@ import { EditProjectsPageComponent } from './pages/backend/projects/edit-project
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { environment } from 'src/environment';
 import { PostedAgoPipe } from './pipes/posted-ago.pipe';
-
+import { LoadingPageComponent } from './layout/loading-page/loading-page.component';
+import { MaterialModule } from './material.module';
 
 export function tokenGetter() { 
   return localStorage.getItem("token"); 
@@ -86,6 +88,7 @@ export function tokenGetter() {
     AddEditProjectFormComponent,
     AddEditBlogFormComponent,
     PostedAgoPipe,
+    LoadingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +105,10 @@ export function tokenGetter() {
     ),
     HttpClientModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule
+    
   ],
   providers: [{provide: 'environment', useValue: environment}],
   bootstrap: [AppComponent]
