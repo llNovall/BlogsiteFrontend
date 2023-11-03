@@ -1,9 +1,15 @@
-<app-header></app-header>
+<ng-container *ngIf="isAPIAvailable;else apiUnavailable">
+    <app-header></app-header>
 
-<main class="">
-    <router-outlet></router-outlet>
-</main>
-
-<div class="fixed-bottom">
+    <main class="">
+        <router-outlet></router-outlet>
+    </main>
+    
     <app-footer></app-footer>
-</div>
+</ng-container>
+
+<ng-template #apiUnavailable>
+    <app-loading-page></app-loading-page>
+</ng-template>
+
+
