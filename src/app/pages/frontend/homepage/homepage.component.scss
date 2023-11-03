@@ -1,0 +1,16 @@
+@use 'src/styles/variables' as v;
+
+
+.section-featured{
+    background-color: v.$primary-100-color !important;
+
+    h2{
+        color : v.$primary-100-contrast-color!important;
+    }
+}
+
+
+.section-posts{
+    background-color: v.$primary-50-color!important;
+}
+
