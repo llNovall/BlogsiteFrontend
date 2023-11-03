@@ -8,6 +8,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
       MatCardModule,
       MatDividerModule,
       MatFormFieldModule,
-      MatInputModule
+      MatInputModule,
+      MatCheckboxModule
     ]
   })
   export class MaterialModule {}
