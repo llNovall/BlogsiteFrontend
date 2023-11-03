@@ -16,7 +16,7 @@
                 <mat-label>Name</mat-label>
                 <input matInput name="sender" type="text" placeholder="Type your name" [(ngModel)]='blogComment.sender'
                     required [minlength]=3 [maxlength]=30 [attr.maxlength]="2" #sender="ngModel">
-                <mat-hint align="end">{{sender.value.length}}/30</mat-hint>
+                <mat-hint align="end">{{sender?.value?.length || 0}}/30</mat-hint>
                 <mat-error *ngIf="sender.invalid && sender.touched">Name must be between 3 - 30 characters
                     long.</mat-error>
             </mat-form-field>
@@ -30,7 +30,7 @@
                 <textarea matInput name="comment" type="text"
                     placeholder="Type your comment" [(ngModel)]='blogComment.commentBody' required minlength=3
                     maxlength=500 #comment="ngModel"></textarea>
-                <mat-hint align="end">{{comment.value.length}}/500</mat-hint>
+                <mat-hint align="end">{{comment?.value?.length || 0}}/500</mat-hint>
                 <mat-error *ngIf="comment.invalid && comment.touched">Comment must be between 3 - 500 characters
                     long.</mat-error>
             </mat-form-field>
