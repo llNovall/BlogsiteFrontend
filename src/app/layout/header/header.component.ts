@@ -5,14 +5,26 @@ import { TagsService } from 'src/app/services/tags.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   tags: Array<Tag> = [];
 
-  constructor(private tagsService: TagsService) { }
+  isSticky: boolean = false;
+
+  constructor(private tagsService: TagsService) {}
   ngOnInit(): void {
-    this.tagsService.getAllTags().subscribe(c => this.tags = c);
+    this.tagsService.getAllTags().subscribe((c) => (this.tags = c));
+    window.addEventListener('scroll', this.scrollEvent, true);
   }
 
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.scrollEvent, true);
+  }
+
+  scrollEvent = (event: any): void => {
+    const scrollTopVal = event.target.scrollingElement.scrollTop;
+    this.isSticky = scrollTopVal >= 100;
+    console.log(scrollTopVal);
+  };
 }
