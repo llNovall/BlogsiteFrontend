@@ -23,7 +23,9 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollEvent = (event: any): void => {
-    const scrollTopVal = event.target.scrollingElement.scrollTop;
-    this.isSticky = scrollTopVal >= 100;
+    try {
+      const scrollTopVal = event.target.scrollingElement.scrollTop;
+      this.isSticky = scrollTopVal >= 100;
+    } catch {}
   };
 }
