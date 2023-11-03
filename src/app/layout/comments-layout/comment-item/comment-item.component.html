@@ -1,12 +1,12 @@
-<div class="form-container secondary-background px-3 py-2">
+<div class="primary-100-border border border-2 px-3 py-2">
     <div class="row">
         <div class="col">
-            <h3 class="primary-text small-caps mb-0 comment-title">{{blogComment.sender}}</h3>
+            <h3 class="primary-200 mb-0 comment-title">{{blogComment.sender}}</h3>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p class="primary-text small-caps comment-time mb-0">{{blogComment.createdAt | postedAgo}}</p>
+            <p class="comment-time mb-0">{{blogComment.createdAt | postedAgo}}</p>
         </div>
     </div>
     <div class="row">
@@ -16,22 +16,23 @@
             </p>
         </div>
     </div>
-    <div class="my-2 text-left">
-        <button class="comment-button button-light primary-text secondary-background small-caps"
-            (click)="onReply()">Reply</button>
+    <div class="my-2">
+        <button mat-flat-button color="primary" class="comment-button" (click)="onReply()">Reply</button>
     </div>
 </div>
 
-<div *ngIf="reply" class=" mt-2">
+<ng-container *ngIf="reply" class=" mt-2">
 
     <div class="mt-4 d-flex justify-content-center">
-        <app-comment-form [commentFormTitle]="'Reply to Comment'" [blogId]="blogComment.blogId" [parentCommentId]="blogComment.id"></app-comment-form>
+        <app-comment-form class="comment-reply-form" [commentFormTitle]="'Reply to Comment'" [blogId]="blogComment.blogId"
+            [parentCommentId]="blogComment.id"></app-comment-form>
     </div>
 
-</div>
+</ng-container>
 
 <div *ngIf="!showReplies && replies.length > 0" class="text-center mt-2">
-    <button class="comment-button button-light primary-text secondary-background small-caps" (click)="showMoreReplies()">Show more replies ({{replies.length}})</button>
+    <button mat-stroked-button color="primary" class="comment-button" (click)="showMoreReplies()">Show more replies
+        ({{replies.length}})</button>
 </div>
 <ng-container *ngIf="showReplies">
     <div *ngFor="let reply of replies" class="d-flex justify-content-end mt-2">
