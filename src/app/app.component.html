@@ -1,15 +1,13 @@
 <ng-container *ngIf="isAPIAvailable;else apiUnavailable">
     <app-header></app-header>
 
-    <main class="">
+    <main>
         <router-outlet></router-outlet>
     </main>
-    
-    <app-footer></app-footer>
+
+    <app-footer class="mt-3"></app-footer>
 </ng-container>
 
 <ng-template #apiUnavailable>
     <app-loading-page></app-loading-page>
 </ng-template>
-
-
