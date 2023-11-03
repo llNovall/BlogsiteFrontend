@@ -1,21 +1,12 @@
-<div class="card card-size card-border m-auto overflow-hidden">
-    <img *ngIf="showImage" src="{{blog.imageUrl}}" alt="...">
-    <div *ngIf="navigationTitle" class="text-center">
-        <a href="" class="nav-link primary-text small-caps">{{navigationTitle}}</a>
-    </div>
-
-    <div class="container primary-background">
-        <div class="d-flex align-items-center justify-content-center card-tags-container">
-            <ng-container *ngFor="let tag of blog.tags | slice:0:4">
-                <a routerLink="search/{{tag.id}}"
-                    class="card-tag primary-background secondary-text small-caps text-center fw-light mx-2">{{tag.tagName}}</a>
-            </ng-container>
-        </div>
-    </div>
-
-    <div class="container">
-
-        <div class="row card-stats-background card-stats-size align-items-center justify-content-center">
+<mat-card class="card-size card-border">
+    <mat-card-header>
+        <mat-card-title-group class="d-block">
+            <img mat-card-sm-image class="card-img" *ngIf="showImage" src="{{blog.imageUrl}}" alt="...">
+            <div class="d-flex justify-content-center">
+                <ng-container *ngFor="let tag of blog.tags | slice:0:4">
+                    <a mat-button color="primary" routerLink="/search/{{tag.id}}" class="card-tag">{{tag.tagName}}</a>
+                </ng-container>
+            </div>
 
             <span class="d-flex justify-content-center">
 
@@ -34,9 +25,10 @@
                         class="bi bi-calendar4-week card-stats-icon secondary-text"></i></span>
                 <span class="card-stats-text primary-text ms-1">{{blog.createdAt | date:'d. MMM yyyy'}}</span>
             </span>
+        </mat-card-title-group>
+    </mat-card-header>
 
-        </div>
-
+    <mat-card-content>
         <div class="card-content-size mt-2">
             <h3 class="card-title card-title-text small-caps text-center mb-0">{{blog.title}}</h3>
             <hr class="mt-0 mx-auto">
@@ -44,10 +36,12 @@
             <p [froalaView]="blog.content" class="card-paragraph card-paragraph-text mb-0 text-center mt-1"></p>
         </div>
 
-    </div>
-    <div class="card-footer primary-background text-center p-0">
-        <a routerLink="page/{{blog.id}}" href="">
-            <span class="d-block"><i class="bi bi-book-fill secondary-text"></i></span>
+    </mat-card-content>
+
+    <mat-card-actions class="justify-content-center">
+        <a mat-stroked-button color="primary" routerLink="/page/{{blog.id}}" href="">
+            <span class="d-block"><i class="bi bi-book-fill secondary-text"></i> Read</span>
         </a>
-    </div>
-</div>
+    </mat-card-actions>
+
+</mat-card>
