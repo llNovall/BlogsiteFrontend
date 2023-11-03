@@ -14,7 +14,7 @@
         </div>
 
         <div class="d-flex">
-            <div class="circle icon-size primary-background ms-5"><i
+            <div class="circle icon-size primary-background"><i
                     class="bi bi-calendar4-week icon secondary-text"></i></div>
             <div class="stats-text primary-text ms-1">{{blog.createdAt | date:'d. MMM yyyy'}}</div>
         </div>
@@ -27,7 +27,7 @@
 
 <div class="d-flex justify-content-center">
     <ng-container *ngFor="let tag of blog.tags | slice:1:5">
-        <a href="#"
+        <a routerLink="../../search/{{tag.id}}"
             class="tag primary-background secondary-text small-caps fw-light text-center px-3 mx-1">{{tag.tagName}}</a>
     </ng-container>
 </div>
