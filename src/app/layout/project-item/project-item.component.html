@@ -1,8 +1,22 @@
-<div class="project-container card-border shadow-effect secondary-background">
-    <h3 class="small-caps primary-background secondary-text fs-5 px-2 py-1 fw-bold">{{project.projectName}}</h3>
+<mat-card class="project-container border border-2 primary-200-border">
+    <mat-card-header>
+        <mat-card-title>
+            <h3 class="primary-200 fs-5 px-2 py-1">{{project.projectName}}</h3>
+            
+        </mat-card-title>
+    </mat-card-header>
+    
+    <hr class="w-75 mx-auto">
 
-    <div [froalaView]="project.projectDescription" class="project-content card-paragraph-text px-3 py-2 overflow-y-auto">
-    </div>
+    <mat-card-content>
+        
+        <div [froalaView]="project.projectDescription"
+            class="project-content card-paragraph-text px-3 py-2 overflow-y-auto">
+        </div>
+    </mat-card-content>
 
-    <a href="{{project.projectLink}}" class="d-block text-center nav-link secondary-text primary-background small-caps py-1">Link</a>
-</div>
+    <mat-card-actions class="justify-content-center">
+        <a mat-stroked-button color="primary" href="{{project.projectLink}}" target="_blank"
+        class="py-1">Link<mat-icon>open_in_new</mat-icon></a>
+    </mat-card-actions>
+</mat-card>

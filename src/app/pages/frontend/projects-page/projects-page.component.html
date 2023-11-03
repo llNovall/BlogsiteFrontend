@@ -1,10 +1,10 @@
-<section class="my-5 primary-background-light pb-5">
+<section class="my-5 pb-5">
     <div class="container pb-3">
-        <div class="d-flex justify-content-center">
-            <h2 class="container-title primary-text py-1 px-5 fs-4 fw-bold small-caps">Projects</h2>
-        </div>
 
         <div class="row justify-content-center mt-3">
+            <div class="text-center">
+                <h2 class="py-1 px-5 fs-4 primary-200">Projects</h2>
+            </div>
             <div *ngFor="let project of projects" class="col-md-auto col-lg-auto col-xl-auto mt-3">
                 <app-project-item [project]="project"></app-project-item>
             </div>
