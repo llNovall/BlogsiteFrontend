@@ -10,7 +10,7 @@ import { RetryConfig, debounce, delay, interval, retry, retryWhen } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'blogsite';
 
-  isAPIAvailable: boolean = true;
+  isAPIAvailable: boolean = false;
   constructor(private blogTagsService: TagsService) {}
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       .subscribe(
         {
           error:() => {
-            this.isAPIAvailable = true;
+            this.isAPIAvailable = false;
           },
 
           complete: () => {
