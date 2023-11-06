@@ -1,15 +1,21 @@
-<section id="comment-section">
-    <div class="title-border mb-3 p-0">
-        <p class="primary-background-light primary-text ps-2 mb-0">Comments</p>
+<section>
+    <div class="border-bottom primary-200 mb-3 p-0">
+        <h2 class="ps-2 mb-0 fs-5">Comments</h2>
     </div>
 
     <div class="mb-5">
 
-        <ng-container *ngFor="let blogComment of blogComments">
-            <div class="mt-2">
-                <app-comment-item [blogComment]="blogComment" [showReplies]=true></app-comment-item>
-            </div>
+        <ng-container *ngIf="blogComments.length > 0;else noComments">
+            <ng-container *ngFor="let blogComment of blogComments">
+                <div class="mt-2">
+                    <app-comment-item [blogComment]="blogComment" [showReplies]=true></app-comment-item>
+                </div>
+            </ng-container>
         </ng-container>
+
+        <ng-template #noComments>
+            <p class="primary-100">No comments..</p>
+        </ng-template>
 
     </div>
 </section>

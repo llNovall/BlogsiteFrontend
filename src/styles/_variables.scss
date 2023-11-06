@@ -1,0 +1,83 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+$custom-primary-palette: (
+    50: #ffebef,
+    100: #ffcdd3,
+    200: #ff9a9a,
+    300: #f87273,
+    400: #ff514f,
+    500: #ff4033,
+    600: #f83634,
+    700: #e62b2e,
+    800: #d92326,
+    900: #c9151a,
+    contrast: (50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+    )
+);
+
+$custom-secondary-palette: (
+    50: #d9ffff,
+    100: #9affff,
+    200: #53fcff,
+    300: #00f7fd,
+    400: #00f1fb,
+    500: #00ecfc,
+    600: #00dae7,
+    700: #00c3cb,
+    800: #00aeb2,
+    900: #008882,
+    contrast: (50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+    )
+);
+
+
+$blogsite-primary: mat.define-palette($custom-primary-palette, 200);
+$blogsite-accent: mat.define-palette($custom-secondary-palette);
+
+$blogsite-warn: mat.define-palette(mat.$red-palette);
+
+$blogsite-theme: mat.define-light-theme((color: (primary: $blogsite-primary,
+                accent: $blogsite-accent,
+                warn: $blogsite-warn,
+            ),
+            typography: mat.define-typography-config(),
+            density: 0,
+        ));
+
+$color-config: mat.get-color-config($blogsite-theme);
+$primary-palette: map.get($color-config, 'primary');
+$accent-palette: map.get($color-config, 'accent');
+$warn-palette: map.get($color-config, 'warn');
+$is-dark-theme: map.get($color-config, 'is-dark');
+
+$primary-50-color: mat.get-color-from-palette($primary-palette, 50);
+$primary-100-color: mat.get-color-from-palette($primary-palette, 100);
+$primary-200-color: mat.get-color-from-palette($primary-palette, 200);
+
+$primary-50-contrast-color: mat.get-color-from-palette($primary-palette, '50-contrast');
+$primary-100-contrast-color: mat.get-color-from-palette($primary-palette, '100-contrast');
+$primary-200-contrast-color: mat.get-color-from-palette($primary-palette, '200-contrast');
+
+$typography-config: mat.get-typography-config($blogsite-theme);

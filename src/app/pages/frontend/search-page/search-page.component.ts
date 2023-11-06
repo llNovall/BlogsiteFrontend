@@ -18,6 +18,8 @@ export class SearchPageComponent implements OnInit {
   tagsCheckboxModels: TagsCheckboxModel[] = [];
   searchResults: Blog[] = [];
 
+  isSearching: boolean = false;
+
   constructor(
     private blogsService: BlogsService,
     private tagsService: TagsService,
@@ -27,21 +29,29 @@ export class SearchPageComponent implements OnInit {
   ngOnInit(): void {
     const tagId = this.activateRoute.snapshot.paramMap.get('tagId');
 
-    this.tagsService.getAllTags().subscribe((tags) => {
-      const tagsList: Tag[] = tags;
-      tags.forEach((t) => {
-        let isChecked = t.id === tagId;
-        this.tagsCheckboxModels.push({ tag: t, isChecked: isChecked });
-      });
+    this.tagsService.getAllTags().subscribe({
+      next: (tags) => {
+        const tagsList: Tag[] = tags;
+        tags.forEach((t) => {
+          let isChecked = t.id === tagId;
+          this.tagsCheckboxModels.push({ tag: t, isChecked: isChecked });
+        });
+      },
+
+      error: () => {},
     });
 
-    this.blogsService.getAllBlogs().subscribe((blogs) => {
-      const yearsList: number[] = blogs.map((p) =>
-        new Date(p.createdAt).getFullYear()
-      ).filter((value, index, self) => self.indexOf(value) === index);
-      yearsList.forEach((y) =>
-        this.yearsCheckboxModels.push({ year: y, isChecked: false })
-      );
+    this.blogsService.getAllBlogs().subscribe({
+      next: (blogs) => {
+        const yearsList: number[] = blogs
+          .map((p) => new Date(p.createdAt).getFullYear())
+          .filter((value, index, self) => self.indexOf(value) === index);
+        yearsList.forEach((y) =>
+          this.yearsCheckboxModels.push({ year: y, isChecked: false })
+        );
+      },
+
+      error: () => {},
     });
 
     this.onSearchOptionsChanged();
@@ -58,6 +68,8 @@ export class SearchPageComponent implements OnInit {
   }
 
   onSearchOptionsChanged() {
+    this.isSearching = true;
+
     let tagIds: string[] = this.tagsCheckboxModels
       .filter((t) => t.isChecked)
       .map((c) => c.tag.id);
@@ -65,9 +77,16 @@ export class SearchPageComponent implements OnInit {
       .filter((t) => t.isChecked)
       .map((c) => c.year);
 
-    this.blogsService
-      .getBlogsWithTagsAndYears(tagIds, years)
-      .subscribe((c) => (this.searchResults = c));
+    this.blogsService.getBlogsWithTagsAndYears(tagIds, years).subscribe({
+      next: (foundBlogs) => {
+        this.searchResults = foundBlogs;
+        this.isSearching = false;
+      },
+
+      error: () => {
+        this.isSearching = false;
+      },
+    });
   }
 
   getBlogId(index: number, blog: Blog) {

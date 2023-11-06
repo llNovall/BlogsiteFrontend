@@ -1,41 +1,42 @@
 <div class="container-fluid">
     <div class="row my-5">
         <div class="col-sm-4 col-md-3">
-            <div class="primary-background-light pb-3">
+            <div class="pb-3">
+
                 <div class="d-flex justify-content-center">
-                    <h2 class="container-title primary-text py-1 px-4 fs-4 fw-bold small-caps">Filter</h2>
+                    <h2 class="px-4 fs-4 primary-200">Filter</h2>
                 </div>
 
-                <h3 class="primary-background secondary-text text-center fs-6 fw-bold small-caps mt-2">Category</h3>
+                <h3 class="text-center fs-6 mt-2 primary-200">Category</h3>
 
-                <div *ngFor="let tagCheckbox of tagsCheckboxModels; trackBy:getTagId" class="form-check ms-4">
-                    <input name="{{tagCheckbox.tag.id}}" [checked]="tagCheckbox.isChecked"
-                        (change)="onTagCheckboxChanged(tagCheckbox, searchOption.checked)"
-                        class="form-check-input primary-background" type="checkbox" value="" id="{{tagCheckbox.tag.id}}"
-                        #searchOption>
-                    <label for="{{tagCheckbox.tag.id}}" class="form-check-label primary-text" for="category1">
+                <hr class="page-hr mx-auto border border-1 primary-200-border">
+
+                <div *ngFor="let tagCheckbox of tagsCheckboxModels; trackBy:getTagId" class="ms-4">
+                    <mat-checkbox #searchOption color="primary" [disabled]=isSearching [checked]="tagCheckbox.isChecked"
+                        (change)="onTagCheckboxChanged(tagCheckbox, searchOption.checked)">
                         {{tagCheckbox.tag.tagName}}
-                    </label>
+                    </mat-checkbox>
                 </div>
 
-                <h3 class="primary-background secondary-text text-center fs-6 fw-bold small-caps mt-2">Year</h3>
-                <div *ngFor="let yearCheckbox of yearsCheckboxModels; trackBy:getYear" class="form-check ms-4">
-                    <input name="{{yearCheckbox.year}}" [checked]="yearCheckbox.isChecked"
-                        (change)="onYearCheckboxChanged(yearCheckbox, searchOption.checked)"
-                        class="form-check-input primary-background" type="checkbox" value="" id="{{yearCheckbox.year}}"
-                        #searchOption>
-                    <label for="{{yearCheckbox.year}}" class="form-check-label primary-text" for="year1">
+                <h3 class="primary-200 text-center fs-6 mt-2">Year</h3>
+
+                <hr class="page-hr mx-auto border border-1 primary-200-border">
+
+                <div *ngFor="let yearCheckbox of yearsCheckboxModels; trackBy:getYear" class="ms-4">
+                    <mat-checkbox #searchOption color="primary" [disabled]=isSearching
+                        [checked]="yearCheckbox.isChecked"
+                        (change)="onYearCheckboxChanged(yearCheckbox, searchOption.checked)">
                         {{yearCheckbox.year}}
-                    </label>
+                    </mat-checkbox>
                 </div>
             </div>
         </div>
 
         <div class="col-sm-8 col-md-9">
-            <div class="title-border mb-1 p-0">
-                <p class="primary-background-light primary-text ps-2 mb-0">Showing {{searchResults.length}} results</p>
+            <div class="mb-1 p-0">
+                <p class="primary-200 ps-2 mb-0">Showing {{searchResults.length}} results</p>
             </div>
-
+            <hr class="border border-1 primary-200-border">
 
             <div class="row justify-content-start">
                 <ng-container *ngFor="let blog of searchResults; trackBy:getBlogId">

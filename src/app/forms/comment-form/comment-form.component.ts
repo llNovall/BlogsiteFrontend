@@ -18,7 +18,7 @@ export class CommentFormComponent {
 
   blogComment: BlogComment;
 
-  constructor(private blogCommentsService: BlogCommentsService) {
+  constructor(private blogCommentsService: BlogCommentsService, ) {
     this.blogComment = {
       id: '',
       sender: '',
@@ -40,12 +40,11 @@ export class CommentFormComponent {
       .subscribe(
         {
           next:() =>{
-            console.log("Successfully added comment");
             this.isAddingComment = false;
+            location.reload();
           },
 
           error:() =>{
-            console.log("Failed to add comment");
             this.isAddingComment = false;
           }
         });

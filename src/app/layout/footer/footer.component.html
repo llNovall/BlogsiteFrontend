@@ -1,33 +1,17 @@
-<footer class="primary-background secondary-text">
-    <div class="container pt-2">
-        <div class="row text-center">
-            <div class="col">
-                <div class="nav-item">
-                    <a href="" class="nav-link small-caps">Privacy</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="nav-item">
-                    <a routerLink="contact" class="nav-link small-caps">Contact</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="nav-item">
-                    <a routerLink="search" class="nav-link small-caps">Archives</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="nav-item">
-                    <a href="" class="nav-link small-caps">Github</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="nav-item">
-                    <a routerLink="projects" class="nav-link small-caps">Projects</a>
-                </div>
-    
-            </div>
-        </div>
-        <div class="text-center small-caps mt-2">Copyright Blog Site</div>
-    </div>
+<footer>
+    <mat-toolbar>
+        <mat-toolbar-row class="d-flex justify-content-center footer-text-color footer-text-size">
+            <a mat-button color="primary" class="me-2" routerLink="/">Privacy</a>
+            <a mat-button color="primary" class="me-2" href="https://github.com/llNovall/BlogsiteFrontend"
+                target="_blank">
+                GitHub </a>
+            <a mat-button color="primary" class="me-2" routerLink="/projects">Projects</a>
+            <a mat-button color="primary" class="me-2" routerLink="/contact">
+                Contacts </a>
+            <a mat-button color="primary" class="me-5" routerLink="/search">Search</a>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="d-flex justify-content-center">
+            <div class="footer-text-size footer-text-color">@Copyright {{copyrightDate | date: "yyyy"}} Blogsite</div>
+        </mat-toolbar-row>
+    </mat-toolbar>
 </footer>
