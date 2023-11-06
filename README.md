@@ -7,20 +7,22 @@ This site is temporarily hosted at [here](https://mango-desert-0fc4f8b03.4.azure
 
 1. Homepage
 
-![Screenshot of homepage.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/homepage.png)
+![Screenshot of homepage-part1.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/homepage1.png)
+![Screenshot of homepage-part2.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/homepage2.png)
 
 2. Search Page
 
-![Screenshot of search page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/search.png)
+![Screenshot of search page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/search.png)
 
 3. Projects Page
 
-![Screenshot of projects page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/projects.png)
+![Screenshot of projects page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/project.png)
 
 4. Blog Page
 
-![Screenshot of blog page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogpage.png)
+![Screenshot of blog page-part1.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/blogpage1.png)
+![Screenshot of blog page-part2.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/blogpage2.png)
 
 5. Contact Page
 
-![Screenshot of contact page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/contact.png)
+![Screenshot of contact page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/contact.png)
