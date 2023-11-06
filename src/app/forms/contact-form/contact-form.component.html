@@ -1,31 +1,57 @@
-<div class="form-container shadow-effect secondary-background">
-    <div class="d-flex justify-content-center">
-        <h2 class="container-title secondary-text primary-background py-1 px-5 fs-4 fw-bold small-caps">Contact</h2>
-    </div>
-
-    <div class="text-center mt-3">
-        <p class="primary-text comment-subtitle">You can use the form below to contact me.</p>
-    </div>
-    
-    <form class="container">
-        <div class="mb-3">
-            <label for="Name" class="form-label primary-text small-caps fw-bold">Name*</label>
-            <input id="Name" type="text" class="form-control primary-background-light primary-text" placeholder="Type your name">
-        </div>
-
-        <div class="mb-3">
-            <label for="Email" class="form-label primary-text small-caps fw-bold">Email*</label>
-            <input id="Email" type="email" class="form-control primary-background-light primary-text" placeholder="Type your email">
-        </div>
-
-
-        <div class="mb-3">
-            <label for="Message" class="form-label primary-text small-caps fw-bold">Message*</label>
-            <textarea id="Message" type="text" class="form-control primary-background-light primary-text" placeholder="Type your message"></textarea>
-        </div>
-        
-        <div class="mb-3 text-center">
-            <button class="form-button button-light primary-text secondary-background small-caps">Send</button>
-        </div>
-    </form>
+<div class="d-flex justify-content-center">
+    <h2 class="primary-200 py-1 px-5 fs-4">Contact</h2>
 </div>
+
+<hr class="mx-auto my-0 border border-1 primary-200-border width-80">
+
+<div class="text-center mt-1">
+    <p class="primary-200 subtitle">You can use the form below to contact me.</p>
+</div>
+
+<form class="container" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="mb-3 text-center">
+        <mat-form-field appearance="outline" class="width-75">
+            <mat-label>Name</mat-label>
+            <input name="sender" matInput [(ngModel)]='messageToSend.sender' #sender='ngModel' required maxlength="50">
+            <mat-hint align="end">{{sender?.value?.length || 0}}/200</mat-hint>
+            <mat-error *ngIf="sender.errors?.['required'] && sender.touched">Name is required.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="mb-3 text-center">
+        <mat-form-field appearance="outline" class="width-75">
+            <mat-label>Email</mat-label>
+            <input name="email" matInput [(ngModel)]='messageToSend.email' #email='ngModel' email required>
+            <mat-error *ngIf="email.errors?.['required'] && email.touched">Email is required.</mat-error>
+            <mat-error *ngIf="email.errors?.['email'] && email.touched">Invalid email format.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="mb-3 text-center">
+        <mat-form-field appearance="outline" class="width-75">
+            <mat-label>Subject</mat-label>
+            <input name="subject" matInput [(ngModel)]='messageToSend.subject' #subject='ngModel' required minlength="5"
+                maxlength="200">
+            <mat-hint align="end">{{subject?.value?.length || 0}}/200</mat-hint>
+            <mat-error *ngIf="subject.errors?.['required'] && subject.touched">Subject is required.</mat-error>
+            <mat-error *ngIf="subject.errors?.['minlength'] && subject.touched">Subject must be at least 5
+                characters.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="mb-3 text-center">
+        <mat-form-field appearance="outline" class="width-75">
+            <mat-label>Message</mat-label>
+            <textarea name="message" matInput [(ngModel)]='messageToSend.message' #message='ngModel' required
+                minlength="5" maxlength="1000"></textarea>
+            <mat-hint align="end">{{message?.value?.length || 0}}/1000</mat-hint>
+            <mat-error *ngIf="message.errors?.['required'] && message.touched">Message is required.</mat-error>
+            <mat-error *ngIf="message.errors?.['minlength'] && message.touched">Message must be at least 5
+                characters.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="mb-3 text-center">
+        <button mat-flat-button color="primary" [disabled]="isSendingMessage || (form.invalid)">Send</button>
+    </div>
+</form>

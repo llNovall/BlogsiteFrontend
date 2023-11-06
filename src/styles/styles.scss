@@ -1,0 +1,59 @@
+@use 'src/styles/variables' as var;
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../../node_modules/bootstrap/scss/variables";
+
+
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.primary-50{
+    color: var.$primary-50-color!important;
+}
+
+.primary-100{
+    color: var.$primary-100-color!important;
+}
+
+.primary-200{
+    color: var.$primary-200-color!important;
+}
+
+.primary-50-bg{
+    background-color: var.$primary-50-color!important;
+}
+
+.primary-100-bg{
+    background-color: var.$primary-100-color!important;
+}
+
+.primary-200-bg{
+    background-color: var.$primary-200-color!important;
+}
+
+.primary-50-border{
+    border-color: var.$primary-50-color!important;
+}
+
+.primary-100-border{
+    border-color: var.$primary-100-color!important;
+}
+
+.primary-200-border{
+    border-color: var.$primary-200-color!important;
+}
+
+.width-80{
+    width: 80%!important;
+}
+
+.width-75{
+    width: 75%!important;
+}

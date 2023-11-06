@@ -1,0 +1,5 @@
+@use 'src/styles/variables' as var;
+
+.loading-text{
+    color: var.$primary-200-color !important;
+}

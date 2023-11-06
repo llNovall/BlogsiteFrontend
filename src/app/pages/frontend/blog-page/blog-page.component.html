@@ -1,35 +1,15 @@
-<section class="mb-3">
-    <div class="container">
-        <app-blog-content [blog]="blog"></app-blog-content>
-    </div>
+<section class="container mt-3 mat-elevation-z4 py-2 mb-3 px-4">
+    <app-blog-content [blog]="blog"></app-blog-content>
 </section>
 
-<!--
-<section class="primary-background-light">
-    <div class="container pb-3">
 
-        <div class="d-flex navigation-container justify-content-between">
-            <div class="navigation">
-                <app-blog-card [blog]="blog" [navigationTitle]='"Previous"'></app-blog-card>
-            </div>
-            <div class="navigation">
-                <app-blog-card [blog]="blog" [navigationTitle]='"Next"'></app-blog-card>
-            </div>
-        </div>
-
-        <hr class="page-hr mt-3 mx-auto primary-text border-2 opacity-100">
-    </div>
-</section>
--->
-<section class="primary-background-light">
-    <div class="pt-5 d-flex justify-content-center">
-        <app-comment-form [blogId]="blog.id"></app-comment-form>
-    </div>
+<section class="container mt-4 py-2 px-4">
+    <app-comment-form [blogId]="blog.id"></app-comment-form>
 </section>
 
 <section class="primary-background-light">
     <div class="container py-3">
         <app-comment-section [blogComments]="blogComments"></app-comment-section>
     </div>
-    
+
 </section>
