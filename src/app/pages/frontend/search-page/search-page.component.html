@@ -34,16 +34,14 @@
 
         <div class="col-sm-8 col-md-9">
             <div class="mb-1 p-0">
-                <p class="primary-200 ps-2 mb-0">Showing {{searchResults.length}} results</p>
+                <p class="primary-200 ps-2 mb-0 text-center text-md-start">Showing {{searchResults.length}} results</p>
             </div>
             <hr class="border border-1 primary-200-border">
 
-            <div class="row justify-content-start">
-                <ng-container *ngFor="let blog of searchResults; trackBy:getBlogId">
-                    <div class="col-sm-auto col-md-auto col-lg-auto col-xl-auto mt-2 pe-0">
-                        <app-blog-card [blog]="blog" [showImage]=true></app-blog-card>
-                    </div>
-                </ng-container>
+            <div class="row justify-content-center">
+
+                <app-blog-card class="col-sm-auto col-md-auto col-lg-auto col-xl-auto mt-2 pe-0 mx-auto mx-md-0 mb-4" *ngFor="let blog of searchResults; trackBy:getBlogId" [blog]="blog"
+                    [showImage]=true></app-blog-card>
 
             </div>
 
