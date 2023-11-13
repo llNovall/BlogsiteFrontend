@@ -5,10 +5,16 @@
             <h2 class="py-1 px-5 fs-4">Featured</h2>
             <div class="row justify-content-center">
 
-                <div *ngFor="let blog of featuredBlogs; trackBy:getBlogId"
-                    class="col-auto col-md-auto col-lg-auto col-xl-auto mt-2">
-                    <app-blog-card [blog]="blog" [showImage]="true"></app-blog-card>
-                </div>
+                <ng-container *ngIf="featuredBlogs.length > 0;else noFeaturedPost">
+                    <div *ngFor="let blog of featuredBlogs; trackBy:getBlogId"
+                        class="col-auto col-md-auto col-lg-auto col-xl-auto mt-2">
+                        <app-blog-card [blog]="blog" [showImage]="true"></app-blog-card>
+                    </div>
+                </ng-container>
+
+                <ng-template #noFeaturedPost>
+                    <p>No featured blog posts available at the moment.</p>
+                </ng-template>
 
             </div>
         </div>
@@ -22,10 +28,16 @@
             <h2 class="py-1 px-5 fs-4">All Posts</h2>
             <div class="row justify-content-center">
 
-                <div *ngFor="let blog of blogs; trackBy:getBlogId"
+                <ng-container *ngIf="blogs.length>0;else noBlogPosts">
+                    <div *ngFor="let blog of blogs; trackBy:getBlogId"
                     class="col-auto col-md-auto col-lg-auto col-xl-auto mt-2">
                     <app-blog-card [blog]="blog" [showImage]="true"></app-blog-card>
                 </div>
+                </ng-container>
+
+                <ng-template #noBlogPosts>
+                    <p>No blog posts available at the moment.</p>
+                </ng-template>
 
             </div>
         </div>
