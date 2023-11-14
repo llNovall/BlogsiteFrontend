@@ -5,9 +5,17 @@
             <div class="text-center">
                 <h2 class="py-1 px-5 fs-4 primary-200">Projects</h2>
             </div>
-            <div *ngFor="let project of projects" class="col-md-auto col-lg-auto col-xl-auto mt-3">
-                <app-project-item [project]="project"></app-project-item>
-            </div>
+
+            <ng-container *ngIf="projects.length > 0 else noProjectAvailable">
+                <div  *ngFor="let project of projects" class="col-md-auto col-lg-auto col-xl-auto mt-3">
+                    <app-project-item [project]="project"></app-project-item>
+                </div>
+            </ng-container>
+
+            <ng-template #noProjectAvailable>
+                <p class="text-center">No projects available at the moment.</p>
+            </ng-template>
+
         </div>
     </div>
 </section>
