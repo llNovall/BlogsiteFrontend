@@ -26,3 +26,27 @@ This site is temporarily hosted at [here](https://mango-desert-0fc4f8b03.4.azure
 5. Contact Page
 
 ![Screenshot of contact page.](https://novusstorageaccount.blob.core.windows.net/github-blogrepo/blogsite-updated/contact.png)
+
+
+
+## How to run
+1. Download the source code
+
+    Use the commend below to download the source code.
+```
+git clone https://github.com/llNovall/BlogsiteFrontend.git
+```
+2. Install dependencies
+
+    Go to the source code folder and open a terminal. Use the command below to install the dependencies.
+```
+npm install
+```
+3. Run the app on dev server
+
+    Use the commmand below to run the app on local dev server at `http://localhost:4200/`.
+```
+ng serve
+```  
+
+This will run the app but without the API for the datas. This project uses the project in this [repo](https://github.com/llNovall/Blogsite-API) for the data management. If you want the API, go to this [repo](https://github.com/llNovall/Blogsite-API) and get its source code. Run that project locally. Make sure to change the variables in the angular project's environment to the API project's link correctly.
